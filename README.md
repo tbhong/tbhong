@@ -1,28 +1,29 @@
-# Create T3 App
+# tbhong
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+The home for the source of [tbh.ong](https://tbh.ong)
 
-## What's next? How do I make an app with this?
+## Development instructions
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+Set up the DB with docker by running the following commands in the root of the project. Make sure you have docker installed.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+```bash
+docker compose up -d
+```
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+then, update the `DATABASE_URL` environment variable in `.env` and then run the following:
 
-## Learn More
+```bash
+yarn prisma db push
+```
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+now your DB is in sync with your prisma schema and you are ready for development.
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+Run the following command to start the Next server.
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+```bash
+yarn dev
+```
 
-## How do I deploy this?
+### Environment variables
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Learn more about how environment variables are setup and used [here](https://create.t3.gg/en/usage/env-variables).
